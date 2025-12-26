@@ -15,7 +15,7 @@ with all_values as (
 
 select *
 from all_values
-where value_field not in (
+where value_field   in (
     'placed','shipped','completed','returned'
 )
 
