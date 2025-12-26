@@ -7,6 +7,6 @@ SELECT
     o_orderkey,
     o_orderdate,
     o_totalprice,
-    o_orderstatus
+    o_orderstatus 
 FROM
     orderdata
