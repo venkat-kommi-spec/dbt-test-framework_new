@@ -1,5 +1,5 @@
 
-  create or replace   view DBT_TEST_DEMO.src.src_orders
+  create or replace   view dbt_test_demo.src.src_orders
   
     
     
@@ -17,18 +17,21 @@
   
 )
 
-   as (
-    WITH orderdata AS (
-    SELECT * FROM snowflake_sample_data.tpch_sf1.orders
-)
-
-SELECT
-    o_custkey,
-    o_orderkey,
-    o_orderdate,
-    o_totalprice,
-    o_orderstatus
-FROM
+  
+  
+  
+  as (
+    WITH orderdata AS (
+    SELECT * FROM snowflake_sample_data.tpch_sf1.orders
+)
+
+SELECT
+    o_custkey,
+    o_orderkey,
+    o_orderdate,
+    o_totalprice,
+    o_orderstatus
+FROM
     orderdata
   );
 

@@ -2,9 +2,11 @@
   
     
 
-        create or replace transient table DBT_TEST_DEMO.curated.cur_order_dist_by_mktseg
-         as
-        (WITH joindata AS (
+create or replace transient table dbt_test_demo.curated.cur_order_dist_by_mktseg
+    
+    
+    
+    as (WITH joindata AS (
     SELECT
         cust.c_custkey,
         cust.c_mktsegment,
@@ -12,8 +14,8 @@
         ordr.o_orderkey,
         ordr.o_orderstatus,
         ordr.o_totalprice
-    FROM DBT_TEST_DEMO.src.src_customers AS cust
-    INNER JOIN DBT_TEST_DEMO.src.src_orders AS ordr
+    FROM dbt_test_demo.src.src_customers AS cust
+    INNER JOIN dbt_test_demo.src.src_orders AS ordr
         ON cust.c_custkey = ordr.o_custkey
 ),
 
@@ -27,6 +29,8 @@ aggr AS (
 )
 
 SELECT * FROM aggr
-        );
-      
+    )
+;
+
+
   

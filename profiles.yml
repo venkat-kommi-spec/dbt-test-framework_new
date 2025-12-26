@@ -8,7 +8,7 @@ DBT_TEST_DEMO:
       user: "{{ env_var('SNOWFLAKE_USER')}}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-      database: DBT_TEST_DEMO
+      database: dbt_test_demo
       warehouse: COMPUTE_WH
       schema: src
       client_session_keep_alive: False

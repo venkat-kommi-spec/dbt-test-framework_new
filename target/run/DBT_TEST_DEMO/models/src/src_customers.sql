@@ -1,5 +1,5 @@
 
-  create or replace   view DBT_TEST_DEMO.src.src_customers
+  create or replace   view dbt_test_demo.src.src_customers
   
     
     
@@ -11,15 +11,18 @@
   
 )
 
-   as (
-    WITH custdata AS (
-    SELECT *
-    FROM snowflake_sample_data.tpch_sf1.customer
-)
-
-SELECT
-    c_custkey,
-    c_mktsegment
+  
+  
+  
+  as (
+    WITH custdata AS (
+    SELECT *
+    FROM snowflake_sample_data.tpch_sf1.customer
+)
+
+SELECT
+    c_custkey,
+    c_mktsegment
 FROM custdata
   );
 
