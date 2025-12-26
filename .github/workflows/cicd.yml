@@ -1,4 +1,5 @@
 name: dbt CI
+
 on:
   push:
     branches:
@@ -19,15 +20,22 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
- 
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dbt
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-snowflake
 
       - name: Install dbt dependencies
         run: dbt deps
- 
 
       - name: Run dbt test
         run: dbt test --profiles-dir ./
 
-      - name: dbt run
+      - name: Run dbt models
         run: dbt run --profiles-dir ./
-        
